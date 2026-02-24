@@ -1,0 +1,30 @@
+# Ruta de aprendizaje (orden correcto)
+  
+    · Python base: tipos, if/for/while, funciones, listas/tuplas/dicts/sets.
+    · Python intermedio: comprensión de listas, manejo de errores, módulos, OOP básica.
+    · Python para datos: numpy, pandas, limpieza, joins, fechas, nulos, outliers.
+    · SQL para analítica: SELECT, JOIN, GROUP BY, subconsultas, ventanas.
+    · Estadística aplicada: media, desviación, percentiles, z-score, IQR, distribuciones.
+    · Machine Learning base: train/test split, escalado, métricas, validación.
+    · Detección de anomalías: Isolation Forest, One-Class SVM, LOF, reglas híbridas.
+    · Proyecto end-to-end: pipeline, evaluación con negocio, explicación de anomalías.
+    · Producción: logging, versionado, monitorización de drift y retraining.
+
+## Lo que necesitas dominar para tu caso (sí o sí)
+    - Definir qué es “anómalo” en tu contexto (volumen, horario, IP, puertos, etc.).
+    - Preparar features por entidad (usuario, host, IP, evento, tabla, hora).
+    - Tratar desbalance extremo (casi todo normal, muy pocos anómalos).
+    - Evaluar bien: precisión no basta; usar recall, precision, PR-AUC, falsos positivos/día.
+    - Explicar resultados: “por qué este registro fue marcado” (feature importance/rules).
+    - Integrar modelo + reglas de negocio (normalmente funciona mejor que solo ML).
+    - Stack recomendado (práctico)
+
+-Python 3.11+
+
+-Librerías: pandas, numpy, scikit-learn, matplotlib, seaborn, sqlalchemy
+-Opcional avanzado: xgboost, pyod, shap
+
+## Primer plan de trabajo (2 semanas)
+
+-Semana 1: extracción SQL, limpieza en pandas, EDA, baseline estadístico (IQR/z-score).
+-Semana 2: modelo Isolation Forest + comparación contra baseline + informe de hallazgos.
