@@ -1,15 +1,152 @@
-# Entornos virtuales
+# =========================
+
+# PYTHON
+
+# =========================
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*$py.class
+
+# Compiled extensions
+
+*.so
+
+# =========================
+
+# VIRTUAL ENVIRONMENTS
+
+# =========================
+
 venv/
 .venv/
+env/
+ENV/
 */venv/
 */.venv/
 
-# Python cache
-__pycache__/
-*.pyc
+# =========================
 
-# Jupyter
+# PYTHON BUILD FILES
+
+# =========================
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+
+# JUPYTER NOTEBOOK
+
+# =========================
+
 .ipynb_checkpoints
+*.nbconvert.ipynb
 
-# VSCode
+# =========================
+
+# IDE / EDITORS
+
+# =========================
+
 .vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+
+# OPERATING SYSTEM FILES
+
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+
+# MACHINE LEARNING / AI
+
+# =========================
+
+# datasets grandes
+
+data/
+datasets/
+
+# modelos entrenados
+
+models/
+checkpoints/
+*.h5
+*.hdf5
+*.keras
+*.ckpt
+*.pt
+*.pth
+
+# logs de entrenamiento
+
+logs/
+tensorboard_logs/
+runs/
+
+# resultados generados
+
+outputs/
+results/
+
+# =========================
+
+# CACHE / TEMP FILES
+
+# =========================
+
+.cache/
+tmp/
+temp/
+
+# =========================
+
+# ENV VARIABLES
+
+# =========================
+
+.env
+.env.local
+.env.*
+
+# =========================
+
+# GOOGLE COLAB
+
+# =========================
+
+/content/
+
+# =========================
+
+# PYTORCH / TENSORFLOW CACHE
+
+# =========================
+
+.torch/
+.tensorflow/
+
+# =========================
+
+# LARGE FILES
+
+# =========================
+
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
