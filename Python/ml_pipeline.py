@@ -32,9 +32,8 @@ X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, r
 #epoch = 100
 # architecture = (600, 600)
 
-epoch = 45
-architecture = (199, 312)
-
+epoch = 2000
+architecture = (55, 55)
 
 ###
 mlp = MLPClassifier(hidden_layer_sizes=architecture, max_iter=epoch, random_state=42, n_iter_no_change=1000)
