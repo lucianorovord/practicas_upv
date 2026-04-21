@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score
-
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 
 # =============================================================================
 # 1. EDA — Exploratory Data Analysis
@@ -190,8 +189,58 @@ print(f'  Capa de entrada  : ({mlp.n_features_in_} neuronas — una por feature)
 print(f'  Capas ocultas    : {architecture}')
 print(f'  Capa de salida   : ({mlp.n_outputs_} neurona — HeartDisease 0/1)')
 
+# Predictions
+y_train_pred = mlp.predict(X_train)
+y_val_pred = mlp.predict(X_val)
+y_test_pred = mlp.predict(X_test)
+
+# Accuracy
 train_acc = accuracy_score(y_train, mlp.predict(X_train))
 val_acc   = accuracy_score(y_val,   mlp.predict(X_val))
+
+# Confusion Matrix 
+cm_train = confusion_matrix(y_train, y_train_pred)
+cm_val = confusion_matrix(y_val, y_val_pred)
+cm_test = confusion_matrix(y_test, y_test_pred)
+
+
+
+############### Mostrar matrices (forma recomendada)
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4))
+
+ConfusionMatrixDisplay(cm_train).plot(ax=axes[0])
+axes[0].set_title("Train")
+
+ConfusionMatrixDisplay(cm_val).plot(ax=axes[1])
+axes[1].set_title("Validacion")
+
+ConfusionMatrixDisplay(cm_test).plot(ax=axes[2])
+axes[2].set_title("Test")
+
+plt.tight_layout()
+plt.show()
+
+
+############### TP, FP, TN, FN (ejemplo con TEST)
+
+tn, fp, fn, tp = cm_test.ravel()
+
+labels = ['TP', 'FP', 'TN', 'FN']
+values = [tp, fp, tn, fn]
+
+plt.figure(figsize=(6,4))
+bars = plt.bar(labels, values)
+
+for bar in bars: 
+    height = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width()/2., height,
+             f'{int(height)}', ha= 'center', va='bottom')
+    
+plt.title('Confusion Matrix (TEST)')
+plt.ylabel('Count')
+plt.show()
+
 
 print(f'\n  Train accuracy : {train_acc:.2%}')
 print(f'  Val   accuracy : {val_acc:.2%}')
@@ -220,12 +269,12 @@ print(f'\n  Test  accuracy : {test_acc:.2%}')
 # =============================================================================
 # 7. VISUALIZACIÓN DE RESULTADOS
 # =============================================================================
-labels = ['Train', 'Validation', 'Test']
-scores = [train_acc, val_acc, test_acc]
+labels_acc = ['Train', 'Validation', 'Test']
+scores_acc = [train_acc, val_acc, test_acc]
 colors = ['#3498db', '#e67e22', '#2ecc71']
 
 plt.figure(figsize=(8, 5))
-bars = plt.bar(labels, scores, color=colors)
+bars = plt.bar(labels_acc, scores_acc, color=colors)
 plt.ylim(0, 1.15)
 plt.ylabel('Accuracy Score')
 plt.title(f'Heart Failure Prediction — MLP {architecture}, {epoch} épocas')
