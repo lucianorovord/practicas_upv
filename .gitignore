@@ -1,3 +1,11 @@
+# Datasets — demasiado grandes para GitHub
+*.csv
+wednesday.csv
+wednesday_clean.csv
+CyberSecurity/cs_train.csv
+CyberSecurity/cs_val.csv
+CyberSecurity/cs_test.csv
+
 # =========================
 
 # PYTHON
