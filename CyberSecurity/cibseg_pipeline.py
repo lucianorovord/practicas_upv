@@ -32,7 +32,7 @@ X_test = np.array(X_test)
 # 5. TRAIN / VALIDATION — MLPClassifier
 # =============================================================================
 
-epoch = 60
+epoch = 55
 architecture = (80, 50)
 
 mlp = MLPClassifier(
